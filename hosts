@@ -1,5 +1,14 @@
-[redhat-servers]
-192.168.0.11 virtual_domain=domain1.devops.demo
-
-[debian-servers]
-192.168.0.12 virtual_domain=domain2.devops.demo
+all:
+  children:
+    debian-servers:
+      hosts:
+        192.168.0.30:
+          ansible_user: saa
+          ansible_ssh_pass: 1
+          virtual_domain: domain2.devops.demo
+    redhat-servers:
+      hosts:
+        192.168.0.30:
+          ansible_user: saa
+          ansible_ssh_pass: 1
+          virtual_domain: domain1.devops.demo
